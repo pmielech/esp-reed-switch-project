@@ -77,7 +77,7 @@ void loop(){
   {
     if (stan != 2 && stan == 0)
     {
-      Serial.println("ZOSTAŁY ZAKMNIĘTE");
+      Serial.println("ZOSTAŁY OTWARTE");
     }
     stan = 1;
   }
