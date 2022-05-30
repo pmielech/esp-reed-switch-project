@@ -61,6 +61,24 @@ void setup(){
   // Start server
   server.begin();
 }
- 
+
+int stan = 2; //2 - POCZATEK PROGRAMU, 1 - OTWARTE, 0 - ZAMKNIĘTE
+
 void loop(){
+  if (digitalRead(Reed) == LOW)
+  {
+    if (stan != 2 && stan == 1)
+    {
+      Serial.println("ZOSTAŁY ZAKMNIĘTE");
+    }
+    stan = 0;
+  }
+  else if (digitalRead(Reed) == HIGH)
+  {
+    if (stan != 2 && stan == 0)
+    {
+      Serial.println("ZOSTAŁY ZAKMNIĘTE");
+    }
+    stan = 1;
+  }
 }
