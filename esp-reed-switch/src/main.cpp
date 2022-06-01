@@ -1,6 +1,4 @@
 #include <Arduino.h>
-
-// Import required libraries
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
@@ -9,14 +7,12 @@
 int sensState = 0;
 //network connection
 const char* ssid = "Redmi Note 7";
-const char* password = "cobypanchcial";
+const char* password = "password";
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
-String readReedSensor() {
-  // Read temperature as Celsius (the default)
-  
+String readReedSensor() {  
   if (isnan(sensState)) {    
     Serial.println("Failed to read from reed sensor!");
     return "";
@@ -61,6 +57,5 @@ void setup(){
   // Start server
   server.begin();
 }
- 
 void loop(){
 }

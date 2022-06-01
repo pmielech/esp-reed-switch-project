@@ -21,12 +21,22 @@
 </head>
 <body>
   <h2>ESP Door Station</h2>
-  <img src="\door-open-solid.svg" alt="Door closed image">
-  <div id="chart-door" class="container"></div>
+  
+  <div id="chart-door"></div>
+  <h3>Legenda:</h3>
+  <p>1 - Rozwarcie czujnika - otwarcie drzwi.</p>
+  <p>0 - Czujnik zwarty - drzwi zamkniete.</p>
 </body>
 <script>
+
 var chartT = new Highcharts.Chart({
-  chart:{ renderTo : 'chart-door' },
+  chart:{
+
+     scrollablePlotArea: {
+        minWidth: 700,
+        scrollPositionX: 1
+     },
+     renderTo : 'chart-door' },
   title: { text: 'Door State' },
   series: [{
     showInLegend: false,
@@ -46,13 +56,15 @@ var chartT = new Highcharts.Chart({
   },
   credits: { enabled: false }
 });
+
+
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var x = (new Date()).getTime(),
           y = parseFloat(this.responseText);
-      if(chartT.series[0].data.length > 40) {
+      if(chartT.series[0].data.length > 2000) {
         chartT.series[0].addPoint([x, y], true, true, true);
       } else {
         chartT.series[0].addPoint([x, y], true, false, true);
@@ -61,6 +73,6 @@ setInterval(function ( ) {
   };
   xhttp.open("GET", "/door", true);
   xhttp.send();
-}, 1500 ) ;
+}, 2000 ) ;
 </script>
 </html>
