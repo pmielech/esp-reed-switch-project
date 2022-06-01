@@ -9,7 +9,7 @@
 int sensState = 0;
 //network connection
 const char* ssid = "Redmi Note 7";
-const char* password = "password";
+const char* password = "cobypanchcial";
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
