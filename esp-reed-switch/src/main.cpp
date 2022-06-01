@@ -72,6 +72,7 @@ if (digitalRead(Reed) == LOW)
       Serial.println("ZOSTAŁY ZAKMNIĘTE");
     }
     stan = 0;
+    return 0;
   }
   else if (digitalRead(Reed) == HIGH)
   {
@@ -80,6 +81,7 @@ if (digitalRead(Reed) == LOW)
       Serial.println("ZOSTAŁY OTWARTE");
     }
     stan = 1;
+    return 1;
   }
 }
 void loop()
