@@ -62,10 +62,10 @@ void setup(){
   server.begin();
 }
 
+String zmianastanu() {
 int stan = 2; //2 - POCZATEK PROGRAMU, 1 - OTWARTE, 0 - ZAMKNIĘTE
 
-void loop(){
-  if (digitalRead(Reed) == LOW)
+if (digitalRead(Reed) == LOW)
   {
     if (stan == 1)
     {
@@ -82,3 +82,5 @@ void loop(){
     stan = 1;
   }
 }
+void loop()
+  
